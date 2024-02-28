@@ -1,7 +1,8 @@
-import { SkinsRepository } from "../infra/SkinsRepository";
+import { Skin } from "../domain/Skin";
+import { Repository } from "../infra/Repository";
 
 export class GetSkins {
-  constructor(private readonly skinsRepository: SkinsRepository) {}
+  constructor(private readonly skinsRepository: Repository<Skin>) {}
 
   async execute(): Promise<GetSkinsResponse[]> {
     const skins = await this.skinsRepository.findAll();

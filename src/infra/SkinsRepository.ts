@@ -1,14 +1,8 @@
 import { Price } from "../domain/Price";
 import { Skin } from "../domain/Skin";
+import { Repository } from "./Repository";
 
-export interface SkinsRepository {
-  findById(id: string): Promise<Skin | undefined>;
-  findAll(): Promise<Skin[]>;
-  save(skin: Skin): Promise<void>;
-  delete(id: string): Promise<void>;
-}
-
-export class SkinsRepositoryInMemory implements SkinsRepository {
+export class SkinsRepositoryInMemory implements Repository<Skin> {
   private skins: Skin[] = [];
 
   constructor() {
