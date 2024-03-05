@@ -11,6 +11,6 @@ export class Skin {
   ) {}
 
   finalPrice(): number {
-    return this.price.value - this.price.value * this.discountPercentage;
+    return this.price.value - (this.price.value * this.discountPercentage) / 100;
   }
 }
